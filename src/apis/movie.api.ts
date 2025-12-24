@@ -30,12 +30,10 @@ const movieApi = {
   },
   orderTickets: (data: {
     maLichChieu: number;
-    danhSachVe: [
-      {
-        maGhe: number;
-        giaVe: number;
-      }
-    ];
+    danhSachVe: {
+      maGhe: number;
+      giaVe: number;
+    }[];
   }) => {
     return http.post<APIResponse<string>>("QuanLyDatVe/DatVe", data);
   }
