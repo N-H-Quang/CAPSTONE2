@@ -88,12 +88,18 @@ function EditMovie() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
+    // Convert date from YYYY-MM-DD to dd/MM/yyyy format
+    const convertDateFormat = (dateString: string) => {
+      const [year, month, day] = dateString.split('-');
+      return `${day}/${month}/${year}`;
+    };
+
     const formDataToSend = new FormData();
     formDataToSend.append("maPhim", movieId!);
     formDataToSend.append("tenPhim", formData.tenPhim);
     formDataToSend.append("trailer", formData.trailer);
     formDataToSend.append("moTa", formData.moTa);
-    formDataToSend.append("ngayKhoiChieu", formData.ngayKhoiChieu);
+    formDataToSend.append("ngayKhoiChieu", convertDateFormat(formData.ngayKhoiChieu));
     formDataToSend.append("hot", String(formData.hot));
     formDataToSend.append("dangChieu", String(formData.dangChieu));
     formDataToSend.append("sapChieu", String(formData.sapChieu));

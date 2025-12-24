@@ -21,14 +21,30 @@ interface UserDialogProps {
 
 function UserDialog({ open, onOpenChange, user, mode }: UserDialogProps) {
   const queryClient = useQueryClient();
-  const [formData, setFormData] = useState({
-    taiKhoan: user?.taiKhoan || "",
-    matKhau: "",
-    email: user?.email || "",
-    soDt: user?.soDt || "",
-    hoTen: user?.hoTen || "",
-    maLoaiNguoiDung: user?.maLoaiNguoiDung || "KhachHang",
-  });
+  
+  // Initialize form data based on mode and user
+  const getInitialFormData = () => {
+    if (mode === "edit" && user) {
+      return {
+        taiKhoan: user.taiKhoan || "",
+        matKhau: "",
+        email: user.email || "",
+        soDt: user.soDt || "",
+        hoTen: user.hoTen || "",
+        maLoaiNguoiDung: user.maLoaiNguoiDung || "KhachHang",
+      };
+    }
+    return {
+      taiKhoan: "",
+      matKhau: "",
+      email: "",
+      soDt: "",
+      hoTen: "",
+      maLoaiNguoiDung: "KhachHang",
+    };
+  };
+
+  const [formData, setFormData] = useState(getInitialFormData);
 
   const mutation = useMutation({
     mutationFn: (data: typeof formData & { maNhom: string }) =>
@@ -56,7 +72,7 @@ function UserDialog({ open, onOpenChange, user, mode }: UserDialogProps) {
   };
 
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
+    <Dialog key={mode === "edit" ? user?.taiKhoan : "add"} open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-md">
         <DialogHeader>
           <DialogTitle>{mode === "add" ? "Add New User" : "Edit User"}</DialogTitle>
