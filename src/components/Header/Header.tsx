@@ -35,7 +35,7 @@ function Header() {
 
           <div className="flex items-center lg:order-2">
             <Link
-              to={auth.isAuthenticated ? "/profile" : "/auth/login"}
+              to={auth.isAuthenticated ? "/user/profile" : "/auth/login"}
               className="text-white hover:bg-black/70/80 focus:ring-4 focus:ring-black/50 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none transition-colors duration-200 cursor-pointer bg-black/50"
             >
               {auth.isAuthenticated ? "Profile" : "Login / Register"}

@@ -1,7 +1,7 @@
 import { MenuField } from "@/@type/movie.type";
-import { LayoutDashboard, File, User, Monitor } from "lucide-react";
+import { LayoutDashboard, File, User, Monitor, PersonStanding, LogOutIcon } from "lucide-react";
 
-export const menuItems: MenuField[] = [
+export const ADMIN_MENU_ITEMS: MenuField[] = [
   {
     url: "/admin/dashboard",
     title: "Dashboard",
@@ -38,6 +38,21 @@ export const menuItems: MenuField[] = [
     url: "/admin/showTimes",
     title: "ShowTime",
     icon: Monitor,
+    onlyIcon: false,
+  },
+];
+
+export const PROFILE_DROPDOWN_ITEMS = [
+  {
+    url: "/user/profile",
+    title: "Profile",
+    icon: PersonStanding,
+    onlyIcon: false,
+  },
+  {
+    url: "/user/logout",
+    title: "Logout",
+    icon: LogOutIcon,
     onlyIcon: false,
   },
 ];

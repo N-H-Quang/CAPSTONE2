@@ -1,8 +1,8 @@
-import { menuItems } from "@/utils/contant";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { MenuField } from "@/@type/movie.type";
 
-function Sidebar({ children }: { children?: React.ReactNode }) {
+function Sidebar({ children, menuItems }: { children?: React.ReactNode, menuItems: MenuField[] }) {
   const [openDropdowns, setOpenDropdowns] = useState<string[]>([]);
 
   const toggleDropdown = (dropdownId: string) => {
@@ -51,13 +51,10 @@ function Sidebar({ children }: { children?: React.ReactNode }) {
             className="flex items-center ps-2.5 mb-5"
           >
             <img
-              src="https://flowbite.com/docs/images/logo.svg"
+              src="https://media.lottecinemavn.com/Media/WebAdmin/7e94a15f40ad4fd8b14d1b5ae62b3c15.png"
               className="h-6 me-3"
               alt="Flowbite Logo"
             />
-            <span className="self-center text-lg text-heading font-semibold whitespace-nowrap">
-              Flowbite
-            </span>
           </a>
 
           <ul className="space-y-2 font-medium">

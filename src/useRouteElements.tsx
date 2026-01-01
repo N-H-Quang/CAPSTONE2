@@ -5,6 +5,9 @@ import { useRoutes } from "react-router-dom";
 import { RejectedRoute } from "./components/RejectedRoute";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import AdminProtectedRoute from "./components/AdminProtectedRoute";
+import UserLayout from "./layouts/UserLayout/UserLayout";
+import Profile from "./pages/Auth/Profile/Profile";
+import Logout from "./pages/Auth/Logout/Logout";
 const Home = lazy(() => import("./pages/Main/Home"));
 const MovieDetail = lazy(() => import("./pages/Main/MovieDetail"));
 const OrderTicked = lazy(() => import("./pages/Main/OrderTicked"));
@@ -48,7 +51,7 @@ export default function useRouteElements() {
         },
         {
           path: "order/:maLichChieu",
-          element: <ProtectedRoute/>,
+          element: <ProtectedRoute />,
           children: [
             {
               path: "",
@@ -92,6 +95,26 @@ export default function useRouteElements() {
             },
           ],
         },
+      ],
+    },
+    {
+      path: "user",
+      element: <ProtectedRoute />,
+      children: [
+        {
+          path: "",
+          element: <UserLayout />,
+          children: [
+            {
+              path: "profile",
+              element: <Profile />,
+            },
+            {
+              path: "logout",
+              element: <Logout />,
+            }
+          ],
+        }
       ],
     },
     {

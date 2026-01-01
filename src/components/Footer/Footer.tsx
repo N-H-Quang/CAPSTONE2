@@ -8,13 +8,10 @@ function Footer() {
         <div className="md:max-w-md">
           <a href="https://flowbite.com" className="flex items-center block">
             <img
-              src="https://flowbite.com/docs/images/logo.svg"
+              src="https://media.lottecinemavn.com/Media/WebAdmin/7e94a15f40ad4fd8b14d1b5ae62b3c15.png"
               className="mr-3 h-6 sm:h-9 dark:invert"
               alt="Flowbite Logo"
             />
-            <span className="self-center text-xl font-semibold whitespace-nowrap text-white">
-              Flowbite
-            </span>
           </a>
 
           <p className="mt-4 max-w-md text-gray-400">

@@ -1,10 +1,11 @@
 import Sidebar from "@/components/Admin/Sidebar";
+import { ADMIN_MENU_ITEMS } from "@/utils/contant";
 import { Outlet } from "react-router-dom";
 
 function AdminLayout() {
   return (
     <>
-      <Sidebar>
+      <Sidebar menuItems={ADMIN_MENU_ITEMS}>
         <Outlet />
       </Sidebar>
     </>
